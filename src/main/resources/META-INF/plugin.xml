@@ -1,0 +1,18 @@
+<idea-plugin>
+    <id>local.dbml.diagram</id>
+    <name>DBML Diagram</name>
+    <vendor>local</vendor>
+    <description>Split editor for .dbml files (dbdiagram.io): syntax highlighting on the left, live ER diagram
+        in dbdiagram.io style on the right, with PNG/SVG export and copy to clipboard.</description>
+
+    <depends>com.intellij.modules.platform</depends>
+    <dependencies>
+        <module name="intellij.libraries.batik"/>
+    </dependencies>
+
+    <extensions defaultExtensionNs="com.intellij">
+        <fileType name="DBML" implementationClass="dbml.DbmlFileType" fieldName="INSTANCE" language="DBML" extensions="dbml"/>
+        <lang.syntaxHighlighter language="DBML" implementationClass="dbml.DbmlHighlighter"/>
+        <fileEditorProvider implementation="dbml.DbmlEditorProvider"/>
+    </extensions>
+</idea-plugin>
